@@ -18,7 +18,7 @@ For the trajectory smoothing, two methods can be used:
 * Piecewise Bezier
 * Downsamplint - Interpolation
 
-[This repo](https://github.com/ThanasisTs/trajectory_process_utils) provides the utility for the preprocessing stage. The output points of this stage are referred to as <em> trajectory points </em>.
+[This repo](https://github.com/ThanasisTs/trajectory_process_utils) provides the utility for the preprocessing stage.
 
 <b> Robot Motion Generation </b>
 
