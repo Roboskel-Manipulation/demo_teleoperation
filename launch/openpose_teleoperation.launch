@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="case_raw" default="false"/>
+	<arg name="case_bezier" default="false"/>
+	<arg name="case_downsampling" default="false"/>
+	<arg name="single_integrator" default="true"/>
+	<arg name="keypoints" default="false" />
+	<arg name="sim" default="false"/>
+	<arg name="live_camera" default="true"/>
+	<arg name="gazebo" default="false"/>
+	
+	<!-- Launch openpose -->
+	<group unless="$(arg keypoints)" >
+		<include file="$(find openpose_utils_launch)/launch/pipeline_launch.launch">
+			<arg name="sim" default="$(arg sim)"/>
+			<arg name="live_camera" default="$(arg live_camera)"/>
+			<arg name="marker" value="true"/>
+		</include>
+	</group>
+
+	<!-- Raw openpose points -->
+	<group if="$(arg case_raw)">
+		<node name="raw_points_process" type="case_raw.py" pkg="trajectory_process_utils" respawn="false" output="log">
+		</node>
+	</group>
+ 
+	<!-- Piecewise Bezier points -->
+	<group if="$(arg case_bezier)">
+		 <node name="piecewise_bezier_constructor" type="case_piecewise_bezier.py" pkg="trajectory_process_utils" respawn="false" output="screen">
+		</node> 
+		
+		<include file="$(find trajectory_process_utils)/launch/trajectory_smoothing.launch">
+		</include>
+	</group>
+
+	<!-- Downsampling-Interpolation points -->
+	<group if="$(arg case_downsampling)">		
+		<node name="downsampling_interpolation_constructor" type="case_std_downsampling.py" pkg="trajectory_process_utils" respawn="false" output="screen">
+		</node>
+	</group>
+	
+
+	<include file="$(find reactive_control)/launch/reactive_control.launch">
+		<arg name="single_integrator" default="$(arg single_integrator)"/>
+		<arg name="gazebo" default="$(arg gazebo)"/>
+	</include>
+
+</launch>
