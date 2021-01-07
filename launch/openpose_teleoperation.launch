@@ -40,7 +40,11 @@
 		</node>
 	</group>
 	
+	<!-- UR3 trajectory points check -->
+	<include file="$(find ur3_trajectory_points_process)/launch/ur3_trajectory_points_process.launch">
+	</include>
 
+	<!-- Reactive control -->
 	<include file="$(find reactive_control)/launch/reactive_control.launch">
 		<arg name="single_integrator" default="$(arg single_integrator)"/>
 		<arg name="gazebo" default="$(arg gazebo)"/>
