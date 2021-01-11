@@ -12,7 +12,7 @@
 	
 	<!-- Launch openpose -->
 	<group unless="$(arg keypoints)" >
-		<include file="$(find openpose_utils_launch)/launch/pipeline_launch.launch">
+		<include file="$(find pipeline_launch)/launch/pipeline_launch.launch">
 			<arg name="sim" default="$(arg sim)"/>
 			<arg name="live_camera" default="$(arg live_camera)"/>
 			<arg name="marker" value="true"/>
@@ -21,27 +21,27 @@
 
 	<!-- Raw openpose points -->
 	<group if="$(arg case_raw)">
-		<node name="raw_points_process" type="case_raw.py" pkg="trajectory_process_utils" respawn="false" output="log">
+		<node name="raw_points_process" type="raw_points_process.py" pkg="online_trajectory_process" respawn="false" output="log">
 		</node>
 	</group>
  
 	<!-- Piecewise Bezier points -->
 	<group if="$(arg case_bezier)">
-		 <node name="piecewise_bezier_constructor" type="case_piecewise_bezier.py" pkg="trajectory_process_utils" respawn="false" output="screen">
+		 <node name="piecewise_bezier_constructor" type="piecewise_bezier_process.py" pkg="online_trajectory_process" respawn="false" output="screen">
 		</node> 
 		
-		<include file="$(find trajectory_process_utils)/launch/trajectory_smoothing.launch">
+		<include file="$(find offline_trajectory_process)/launch/trajectory_smoothing.launch">
 		</include>
 	</group>
 
 	<!-- Downsampling-Interpolation points -->
 	<group if="$(arg case_downsampling)">		
-		<node name="downsampling_interpolation_constructor" type="case_std_downsampling.py" pkg="trajectory_process_utils" respawn="false" output="screen">
+		<node name="downsampling_interpolation_constructor" type="downsampling_interpolation_process.py" pkg="online_trajectory_process" respawn="false" output="screen">
 		</node>
 	</group>
-	
+
 	<!-- UR3 trajectory points check -->
-	<include file="$(find ur3_trajectory_points_process)/launch/ur3_trajectory_points_process.launch">
+	<include file="$(find ur3_trajectory_process)/launch/ur3_trajectory_process.launch">
 	</include>
 
 	<!-- Reactive control -->
