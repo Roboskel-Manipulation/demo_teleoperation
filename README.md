@@ -22,7 +22,7 @@ The motion of the robot's end effector is based on the [cartesian_trajectory_tra
 * [ur3_trajectory_process.launch](): Transforms the filtered trajectory to be executable by the UR3.
 * [cartesian_trajectory_tracking.launch](https://github.com/Roboskel-Manipulation/cartesian_trajectory_tracking): Node for tracking the input trajectory.
 * [3D_visualization.ipynb](https://nbviewer.jupyter.org/github/ThanasisTs/demo_teleoperation/blob/main/3D_visualization.ipynb): Visualization of a 3D movement.
-* 
+
 ## Run
 
 `roslaunch openpose_teleoperation reactive_framework.launch `
