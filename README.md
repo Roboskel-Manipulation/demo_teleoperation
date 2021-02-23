@@ -21,7 +21,7 @@ The motion of the robot's end effector is based on the [cartesian_trajectory_tra
 * [online_trajectory_process.launch](): Brings up the node for preprocessing the cartesian trajectory.
 * [ur3_trajectory_process.launch](): Transforms the filtered trajectory to be executable by the UR3.
 * [cartesian_trajectory_tracking.launch](https://github.com/Roboskel-Manipulation/cartesian_trajectory_tracking): Node for tracking the input trajectory.
-* [3D_visualization.html](https://htmlpreview.github.io/?https://github.com/ThanasisTs/demo_teleoperation/blob/main/3D_visualization.html): Visualization of a 3D movement.
+* [3D_visualization.html](https://htmlpreview.github.io/?https://github.com/Roboskel-Manipulation/demo_teleoperation/blob/main/3D_visualization.html): Visualization of a 3D movement.
 
 ## Run
 
