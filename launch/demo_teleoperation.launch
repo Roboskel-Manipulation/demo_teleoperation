@@ -31,7 +31,6 @@
 	<!-- UR3 trajectory points check -->
 	<include file="$(find ur3_trajectory_process)/launch/ur3_trajectory_process.launch">
 		<arg name="halt_motion" default="$(arg halt_motion)"/>
-		<arg name="dynamic_calibration" value="true"/>
 	</include>
 
 	<!-- Trajectory tracking -->
