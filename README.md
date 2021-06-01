@@ -1,4 +1,4 @@
-# Teleoperation of UR3 Cobot
+# demo_teleoperation
 
 ## Description
 This package launches the necessary nodes for the teleoperation of a UR3 cobot.
