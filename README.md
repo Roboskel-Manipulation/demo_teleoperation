@@ -23,7 +23,7 @@ An interactive [3D plot](https://htmlpreview.github.io/?https://github.com/Robos
 A real-time demonstration comparing the two controllers and other real-time demonstrations of the performance of the teleoperation with the PD-controller are available at [Vimeo](https://vimeo.com/showcase/7718151/).
 
 ## Run
-`roslaunch openpose_teleoperation reactive_framework.launch`
+`roslaunch demo_teleoperation demo_teleoperation.launch`
 
 ## Arguments
 Input modality
