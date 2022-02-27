@@ -22,6 +22,9 @@ The desired robot positions are used as input to the [cartesian_trajectory_track
 An interactive [3D plot](https://htmlpreview.github.io/?https://github.com/Roboskel-Manipulation/demo_teleoperation/blob/main/3D_visualization.html) shows the human movement and the respective robot motions using the two controllers during a 3D movement.  
 A real-time demonstration comparing the two controllers and other real-time demonstrations of the performance of the teleoperation with the PD-controller are available at [Vimeo](https://vimeo.com/showcase/7718151/).
 
+### Data Collection
+The procedure followed for the data collection is described [here](https://github.com/Roboskel-Manipulation/demo_teleoperation/blob/main/data_collection.pdf). Furthermore, it is the same procedure described in [1].
+
 ## Run
 `roslaunch demo_teleoperation demo_teleoperation.launch`
 
@@ -36,3 +39,23 @@ Robot
 * halt_motion: True for enabling the user to halt the robot motion by bringing his left wrist higher than his left shoulder
 * p_control: True for P controller (False for PD controller)
 * gazebo: True if using gazebo
+
+### References
+```python
+[1] @inproceedings{10.1145/3453892.3461627,
+author = {Dagioglou, Maria and Tsitos, Athanasios C. and Smarnakis, Aristeidis and Karkaletsis, Vangelis},
+title = {Smoothing of Human Movements Recorded by a Single RGB-D Camera for Robot Demonstrations},
+year = {2021},
+isbn = {9781450387927},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3453892.3461627},
+doi = {10.1145/3453892.3461627},
+booktitle = {The 14th PErvasive Technologies Related to Assistive Environments Conference},
+pages = {496–501},
+numpages = {6},
+keywords = {Noisy trajectory interpolation, Human movement tracking},
+location = {Corfu, Greece},
+series = {PETRA 2021}
+}
+```
